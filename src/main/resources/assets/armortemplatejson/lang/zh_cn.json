@@ -1,0 +1,14 @@
+{
+  "mod.armortemplatejson.name": "盔甲模板 JSON",
+  "item.armortemplatejson.generated_helmet": "生成盔甲头盔",
+  "item.armortemplatejson.generated_chestplate": "生成盔甲胸甲",
+  "item.armortemplatejson.generated_leggings": "生成盔甲护腿",
+  "item.armortemplatejson.generated_boots": "生成盔甲靴子",
+  "item.armortemplatejson.armor_plugin": "盔甲插板",
+  "container.armortemplatejson.plugin_slots": "盔甲插板",
+  "effect.armortemplatejson.elytra_flight": "鞘翅飞行",
+  "effect.armortemplatejson.creative_flight": "创造飞行",
+  "effect.armortemplatejson.damage_reflection": "反弹伤害",
+  "effect.armortemplatejson.powder_snow_walking": "细雪行走",
+  "effect.armortemplatejson.piglin_neutral": "猪灵中立"
+}

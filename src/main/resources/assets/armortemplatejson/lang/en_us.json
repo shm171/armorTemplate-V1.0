@@ -1,0 +1,14 @@
+{
+  "mod.armortemplatejson.name": "Armor Template JSON",
+  "item.armortemplatejson.generated_helmet": "Generated Helmet",
+  "item.armortemplatejson.generated_chestplate": "Generated Chestplate",
+  "item.armortemplatejson.generated_leggings": "Generated Leggings",
+  "item.armortemplatejson.generated_boots": "Generated Boots",
+  "item.armortemplatejson.armor_plugin": "Armor Plugin",
+  "container.armortemplatejson.plugin_slots": "Armor Plugins",
+  "effect.armortemplatejson.elytra_flight": "Elytra Flight",
+  "effect.armortemplatejson.creative_flight": "Creative Flight",
+  "effect.armortemplatejson.damage_reflection": "Damage Reflection",
+  "effect.armortemplatejson.powder_snow_walking": "Powder Snow Walking",
+  "effect.armortemplatejson.piglin_neutral": "Piglin Neutral"
+}
