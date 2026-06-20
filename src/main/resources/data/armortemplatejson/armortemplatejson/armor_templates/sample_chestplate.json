@@ -1,0 +1,49 @@
+{
+  "properties": {
+    "level": 1,
+    "icon": "minecraft:diamond_chestplate",
+    "name": {
+      "translate": "template.armortemplatejson.sample_chestplate",
+      "fallback": "Sample Template Chestplate"
+    },
+    "description": {
+      "translate": "template.armortemplatejson.sample_chestplate.desc",
+      "fallback": "A level 1 chestplate; sneak-use this item to open the plugin slots."
+    },
+    "visual": {
+      "texture": "armortemplatejson:item/sample_chestplate",
+      "model": "armortemplatejson:item/sample_chestplate",
+      "custom_model_data": 1002
+    },
+    "slot": "body",
+    "effect": "armortemplatejson:elytra_flight",
+    "chestplate": {
+      "plugin_numbers": 2,
+      "plugin_categories": [
+        "armortemplatejson:defense",
+        "armortemplatejson:flight"
+      ],
+      "max_plugin_level": 2,
+      "consumption": [
+        {
+          "type": "mekanism:energy",
+          "remaining": 10000,
+          "capacity": 10000,
+          "consume_rate": 20
+        }
+      ]
+    },
+    "properties": [
+      {
+        "type": "minecraft:generic.armor",
+        "operation": "add",
+        "value": 8.0
+      },
+      {
+        "type": "minecraft:generic.armor_toughness",
+        "operation": "add",
+        "value": 2.0
+      }
+    ]
+  }
+}

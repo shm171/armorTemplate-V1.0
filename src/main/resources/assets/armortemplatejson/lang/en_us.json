@@ -10,5 +10,21 @@
   "effect.armortemplatejson.creative_flight": "Creative Flight",
   "effect.armortemplatejson.damage_reflection": "Damage Reflection",
   "effect.armortemplatejson.powder_snow_walking": "Powder Snow Walking",
-  "effect.armortemplatejson.piglin_neutral": "Piglin Neutral"
+  "effect.armortemplatejson.piglin_neutral": "Piglin Neutral",
+  "template.armortemplatejson.sample_helmet": "Sample Template Helmet",
+  "template.armortemplatejson.sample_helmet.desc": "A level 1 sample helmet that demonstrates armor attributes, effects and consumption data.",
+  "template.armortemplatejson.sample_chestplate": "Sample Template Chestplate",
+  "template.armortemplatejson.sample_chestplate.desc": "A level 1 chestplate; sneak-use this item to open the plugin slots.",
+  "template.armortemplatejson.sample_leggings": "Sample Template Leggings",
+  "template.armortemplatejson.sample_leggings.desc": "A level 1 sample leggings item with a Mekanism-style gas quantity entry.",
+  "template.armortemplatejson.sample_boots": "Sample Template Boots",
+  "template.armortemplatejson.sample_boots.desc": "A level 1 sample boots item with a fluid-style quantity entry.",
+  "plugin.armortemplatejson.guard_plate": "Guard Plate",
+  "plugin.armortemplatejson.guard_plate.desc": "A defensive level 1 plugin that demonstrates item-style quantity data.",
+  "plugin.armortemplatejson.flight_core": "Flight Core",
+  "plugin.armortemplatejson.flight_core.desc": "A flight-oriented level 1 plugin that stores an energy quantity entry.",
+  "plugin_combination.armortemplatejson.guarded_flight": "Guarded Flight",
+  "command.armortemplatejson.players_only": "This command can only be used by a player.",
+  "command.armortemplatejson.missing_sample": "Missing sample definition: %s",
+  "command.armortemplatejson.give_sample.success": "Generated %s sample armor/plugin items."
 }

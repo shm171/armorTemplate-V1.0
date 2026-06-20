@@ -1,6 +1,7 @@
 package com.codex.armortemplatejson.plugin;
 
 import com.codex.armortemplatejson.component.ModDataComponents;
+import com.codex.armortemplatejson.item.ArmorTemplateBinding;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -21,13 +22,15 @@ public class PluginMenu extends AbstractContainerMenu {
     private final int pluginSlotCount;
     private final int lockedHotbarSlot;
     private final ItemStack editedArmorStack;
+    private final ArmorTemplateBinding armorBinding;
 
     public PluginMenu(int containerId, Inventory playerInventory, RegistryFriendlyByteBuf extraData) {
         this(containerId, playerInventory, ItemStack.EMPTY, ClientMenuData.read(extraData));
     }
 
     public PluginMenu(int containerId, Inventory playerInventory, ItemStack editedArmorStack, int pluginSlotCount) {
-        this(containerId, playerInventory, editedArmorStack, new ClientMenuData(pluginSlotCount, playerInventory.selected));
+        this(containerId, playerInventory, editedArmorStack, new ClientMenuData(pluginSlotCount, playerInventory.selected,
+                editedArmorStack.get(ModDataComponents.ARMOR_TEMPLATE.get())));
     }
 
     private PluginMenu(int containerId, Inventory playerInventory, ItemStack editedArmorStack, ClientMenuData menuData) {
@@ -35,7 +38,8 @@ public class PluginMenu extends AbstractContainerMenu {
         this.pluginSlotCount = Math.max(0, Math.min(menuData.pluginSlotCount(), PluginContainerComponent.MAX_PLUGIN_SLOTS));
         this.lockedHotbarSlot = menuData.lockedHotbarSlot();
         this.editedArmorStack = editedArmorStack;
-        this.pluginContainer = createPluginContainer(editedArmorStack, this.pluginSlotCount);
+        this.armorBinding = menuData.armorBinding();
+        this.pluginContainer = createPluginContainer(editedArmorStack, this.pluginSlotCount, armorBinding);
         this.pluginContainer.startOpen(playerInventory.player);
 
         addPluginSlots();
@@ -80,7 +84,7 @@ public class PluginMenu extends AbstractContainerMenu {
             if (!this.moveItemStackTo(source, pluginSlotCount, this.slots.size(), true)) {
                 return ItemStack.EMPTY;
             }
-        } else if (PluginSlot.isPluginStack(source)) {
+        } else if (PluginRules.canPlacePlugin(source, armorBinding)) {
             if (!this.moveItemStackTo(source, 0, pluginSlotCount, false)) {
                 return ItemStack.EMPTY;
             }
@@ -112,7 +116,7 @@ public class PluginMenu extends AbstractContainerMenu {
     private void addPluginSlots() {
         int startX = 8 + (9 - pluginSlotCount) * 9;
         for (int i = 0; i < pluginSlotCount; i++) {
-            this.addSlot(new PluginSlot(pluginContainer, i, startX + i * 18, 20));
+            this.addSlot(new PluginSlot(pluginContainer, i, startX + i * 18, 20, armorBinding));
         }
     }
 
@@ -131,7 +135,7 @@ public class PluginMenu extends AbstractContainerMenu {
         }
     }
 
-    private static SimpleContainer createPluginContainer(ItemStack armorStack, int pluginSlotCount) {
+    private static SimpleContainer createPluginContainer(ItemStack armorStack, int pluginSlotCount, ArmorTemplateBinding armorBinding) {
         SimpleContainer container = new SimpleContainer(pluginSlotCount);
         PluginContainerComponent component = armorStack.get(ModDataComponents.PLUGIN_CONTAINER.get());
         var stacks = component == null
@@ -139,17 +143,17 @@ public class PluginMenu extends AbstractContainerMenu {
                 : component.copyForSize(pluginSlotCount);
         for (int i = 0; i < stacks.size(); i++) {
             ItemStack stack = stacks.get(i);
-            container.setItem(i, PluginSlot.isPluginStack(stack) ? stack : ItemStack.EMPTY);
+            container.setItem(i, PluginRules.canPlacePlugin(stack, armorBinding) ? stack : ItemStack.EMPTY);
         }
         return container;
     }
 
-    private record ClientMenuData(int pluginSlotCount, int lockedHotbarSlot) {
+    private record ClientMenuData(int pluginSlotCount, int lockedHotbarSlot, ArmorTemplateBinding armorBinding) {
         static ClientMenuData read(RegistryFriendlyByteBuf extraData) {
             if (extraData == null) {
-                return new ClientMenuData(0, -1);
+                return new ClientMenuData(0, -1, null);
             }
-            return new ClientMenuData(extraData.readVarInt(), extraData.readVarInt());
+            return new ClientMenuData(extraData.readVarInt(), extraData.readVarInt(), ArmorTemplateBinding.STREAM_CODEC.decode(extraData));
         }
     }
 

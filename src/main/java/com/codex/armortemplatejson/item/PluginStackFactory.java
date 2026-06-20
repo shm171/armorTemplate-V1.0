@@ -16,6 +16,8 @@ public final class PluginStackFactory {
         ItemStack stack = new ItemStack(ModItems.ARMOR_PLUGIN.get());
         stack.set(ModDataComponents.PLUGIN.get(), binding);
         stack.set(DataComponents.ITEM_NAME, binding.name().toComponent());
+        ItemTextComponents.applyLore(stack, binding.description());
+        ItemVisuals.apply(stack, binding.visual());
         return stack;
     }
 }

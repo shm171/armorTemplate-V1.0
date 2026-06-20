@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "level": 1,
+    "icon": "minecraft:diamond_boots",
+    "name": {
+      "translate": "template.armortemplatejson.sample_boots",
+      "fallback": "Sample Template Boots"
+    },
+    "description": {
+      "translate": "template.armortemplatejson.sample_boots.desc",
+      "fallback": "A level 1 sample boots item with a fluid-style quantity entry."
+    },
+    "visual": {
+      "texture": "armortemplatejson:item/sample_boots",
+      "model": "armortemplatejson:item/sample_boots",
+      "custom_model_data": 1004
+    },
+    "slot": "feet",
+    "effect": "armortemplatejson:powder_snow_walking",
+    "properties": [
+      {
+        "type": "minecraft:generic.armor",
+        "operation": "add",
+        "value": 3.0
+      },
+      {
+        "type": "minecraft:generic.armor_toughness",
+        "operation": "add",
+        "value": 2.0
+      }
+    ]
+  }
+}

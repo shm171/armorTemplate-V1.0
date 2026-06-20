@@ -23,6 +23,8 @@ public final class ArmorTemplateStackFactory {
         ItemStack stack = new ItemStack(ModItems.forSlot(binding.slot()).get());
         stack.set(ModDataComponents.ARMOR_TEMPLATE.get(), binding);
         stack.set(DataComponents.ITEM_NAME, binding.name().toComponent());
+        ItemTextComponents.applyLore(stack, binding.description());
+        ItemVisuals.apply(stack, binding.visual());
         stack.set(DataComponents.ATTRIBUTE_MODIFIERS, buildAttributeModifiers(binding));
         if (binding.pluginSlots() > 0) {
             stack.set(ModDataComponents.PLUGIN_CONTAINER.get(), PluginContainerComponent.empty(binding.pluginSlots()));

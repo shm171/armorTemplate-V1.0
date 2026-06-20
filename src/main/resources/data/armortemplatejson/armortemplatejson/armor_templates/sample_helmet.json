@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "level": 1,
+    "icon": "minecraft:diamond_helmet",
+    "name": {
+      "translate": "template.armortemplatejson.sample_helmet",
+      "fallback": "Sample Template Helmet"
+    },
+    "description": {
+      "translate": "template.armortemplatejson.sample_helmet.desc",
+      "fallback": "A level 1 sample helmet that demonstrates armor attributes, effects and consumption data."
+    },
+    "visual": {
+      "texture": "armortemplatejson:item/sample_helmet",
+      "model": "armortemplatejson:item/sample_helmet",
+      "custom_model_data": 1001
+    },
+    "slot": "head",
+    "effect": "armortemplatejson:piglin_neutral",
+    "properties": [
+      {
+        "type": "minecraft:generic.armor",
+        "operation": "add",
+        "value": 3.0
+      }
+    ]
+  }
+}

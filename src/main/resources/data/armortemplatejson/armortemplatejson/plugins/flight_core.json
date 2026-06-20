@@ -1,0 +1,36 @@
+{
+  "level": 1,
+  "category": "armortemplatejson:flight",
+  "icon": "minecraft:elytra",
+  "name": {
+    "translate": "plugin.armortemplatejson.flight_core",
+    "fallback": "Flight Core"
+  },
+  "description": {
+    "translate": "plugin.armortemplatejson.flight_core.desc",
+    "fallback": "A flight-oriented level 1 plugin that stores an energy quantity entry."
+  },
+  "visual": {
+    "texture": "armortemplatejson:item/flight_core",
+    "model": "armortemplatejson:item/flight_core",
+    "custom_model_data": 2002
+  },
+  "effects": {
+    "effect": "armortemplatejson:creative_flight",
+    "per_level_effect": [],
+    "unlock_effect": [
+      {
+        "level": 2,
+        "effect": "armortemplatejson:elytra_flight"
+      }
+    ]
+  },
+  "consumption": [
+    {
+      "type": "mekanism:energy",
+      "remaining": 5000,
+      "capacity": 5000,
+      "consume_rate": 20
+    }
+  ]
+}

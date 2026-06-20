@@ -20,6 +20,7 @@ public final class PluginMenuProvider {
                 buffer -> {
                     buffer.writeVarInt(binding.pluginSlots());
                     buffer.writeVarInt(lockedSlot);
+                    ArmorTemplateBinding.STREAM_CODEC.encode(buffer, binding);
                 }
         );
     }

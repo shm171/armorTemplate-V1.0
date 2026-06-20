@@ -1,5 +1,6 @@
 package com.codex.armortemplatejson;
 
+import com.codex.armortemplatejson.command.ArmorTemplateCommands;
 import com.codex.armortemplatejson.component.ModDataComponents;
 import com.codex.armortemplatejson.config.ConfigExceptionDisplay;
 import com.codex.armortemplatejson.effect.ArmorEffectEvents;
@@ -28,6 +29,7 @@ public final class ArmorTemplateJsonMod {
         NeoForge.EVENT_BUS.addListener(ConfigExceptionDisplay::onPlayerLoggedIn);
         NeoForge.EVENT_BUS.addListener(ArmorEffectEvents::onPlayerTick);
         NeoForge.EVENT_BUS.addListener(ArmorEffectEvents::onLivingDamagePost);
+        NeoForge.EVENT_BUS.addListener(ArmorTemplateCommands::register);
     }
 
     public static ResourceLocation id(String path) {

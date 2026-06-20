@@ -5,6 +5,7 @@ import com.codex.armortemplatejson.effect.ArmorEffectRegistry;
 import com.codex.armortemplatejson.effect.ArmorSuitResolver;
 import com.codex.armortemplatejson.plugin.PluginContainerComponent;
 import com.codex.armortemplatejson.plugin.PluginMenuProvider;
+import com.codex.armortemplatejson.template.ArmorTemplateSlot;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -78,7 +79,9 @@ public class GeneratedArmorItem extends ArmorItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         ArmorTemplateBinding binding = stack.get(ModDataComponents.ARMOR_TEMPLATE.get());
-        if (hand == InteractionHand.MAIN_HAND && player.isShiftKeyDown() && binding != null && binding.pluginSlots() > 0) {
+        // 插板 UI 只绑定胸甲入口，避免头盔/护腿/靴子误打开同一套编辑界面。
+        if (hand == InteractionHand.MAIN_HAND && player.isShiftKeyDown() && binding != null
+                && binding.slot() == ArmorTemplateSlot.BODY && binding.pluginSlots() > 0) {
             if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
                 PluginMenuProvider.open(serverPlayer, stack, binding);
             }

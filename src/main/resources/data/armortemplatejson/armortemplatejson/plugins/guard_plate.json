@@ -1,0 +1,31 @@
+{
+  "level": 1,
+  "category": "armortemplatejson:defense",
+  "icon": "minecraft:amethyst_shard",
+  "name": {
+    "translate": "plugin.armortemplatejson.guard_plate",
+    "fallback": "Guard Plate"
+  },
+  "description": {
+    "translate": "plugin.armortemplatejson.guard_plate.desc",
+    "fallback": "A defensive level 1 plugin that demonstrates item-style quantity data."
+  },
+  "visual": {
+    "texture": "armortemplatejson:item/guard_plate",
+    "model": "armortemplatejson:item/guard_plate",
+    "custom_model_data": 2001
+  },
+  "effects": {
+    "effect": "armortemplatejson:damage_reflection",
+    "per_level_effect": [],
+    "unlock_effect": []
+  },
+  "consumption": [
+    {
+      "type": "minecraft:emerald",
+      "remaining": 3,
+      "capacity": 3,
+      "consume_rate": 0
+    }
+  ]
+}

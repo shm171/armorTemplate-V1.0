@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "level": 1,
+    "icon": "minecraft:diamond_leggings",
+    "name": {
+      "translate": "template.armortemplatejson.sample_leggings",
+      "fallback": "Sample Template Leggings"
+    },
+    "description": {
+      "translate": "template.armortemplatejson.sample_leggings.desc",
+      "fallback": "A level 1 sample leggings item with a Mekanism-style gas quantity entry."
+    },
+    "visual": {
+      "texture": "armortemplatejson:item/sample_leggings",
+      "model": "armortemplatejson:item/sample_leggings",
+      "custom_model_data": 1003
+    },
+    "slot": "legging",
+    "properties": [
+      {
+        "type": "minecraft:generic.armor",
+        "operation": "add",
+        "value": 6.0
+      },
+      {
+        "type": "minecraft:generic.armor_toughness",
+        "operation": "add",
+        "value": 2.0
+      }
+    ]
+  }
+}
